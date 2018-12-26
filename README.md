@@ -83,7 +83,7 @@ element-ui | 基于 Vue 2.0 的桌面端组件库 | [http://element-cn.eleme.io]
 Headroom | 隐藏或展示页面元素 | [http://www.bootcss.com/p/headroom.js/](http://www.bootcss.com/p/headroom.js/)
 
 ## 效果图
-![demo](https://11-1252792348.cos.ap-guangzhou.myqcloud.com/basis-gulp.gif)
+![demo](https://11-1252792348.cos.ap-guangzhou.myqcloud.com/basis-vue.gif)
 
 ## 捐助
 
