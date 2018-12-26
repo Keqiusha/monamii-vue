@@ -1,34 +1,18 @@
 <template>
     <div class="wrapper-footer">
         <div class="footer">
-            <!-- <div class="blogroll">
-                 <ul class="link-box flex">
-                     <li class="link-item">海外货主</li>
-                     <li class="link-item">海外货代</li>
-                     <li class="link-item">海外工厂</li>
-                     <li class="link-item">国内工厂</li>
-                     <li class="link-item">国内货代</li>
-                     <li class="link-item">国内码头</li>
-                     <li class="link-item">国内堆场</li>
-                     <li class="link-item">拖车行</li>
-                     <li class="link-item">报关行</li>
-                 </ul>
-                 <div class="copyright">
-                     <span>Copyright ©2017 - 2020 深圳市懿点网网络有限公司 <a target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备16010768号</a></span>
-                 </div>
-             </div>-->
             <div class="address flex">
-                <div :style="{marginLeft: 122 + 'px'}">
+                <div>
                     <ul>
-                        <li>服务热线：0755-22315509</li>
-                        <li>地 址：深圳市罗湖区清水河一路博隆大厦大厦804</li>
+                        <li>服务热线：XXXXXXXX</li>
+                        <li>地 址：XXXXXXXXXXXXXXXXXXXXXXXX</li>
                     </ul>
                     <div class="copyright">
-                        <span>Copyright ©2017 - 2020 深圳市懿点网网络有限公司<a target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备16010768号</a></span>
+                        <span>Copyright ©2017 - 2020 XXXXXXXXXXXXXXXXXX<a target="_blank" href="#">粤ICP备XXXXXXXXXXXXXXXX号</a></span>
                     </div>
                 </div>
                 <div class="qrcode">
-                    <img src="../assets/img/wechat-img.jpg">
+                    <img src="../assets/img/test.png">
                 </div>
             </div>
         </div>

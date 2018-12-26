@@ -22,35 +22,9 @@ const router = new Router({
                     component: () => import('./views/About.vue')
                 },
                 {
-                    path: '/jyd',
-                    name: 'jyd',
-                    component: () => import('./views/Jyd.vue')
-                },
-                {
-                    path: '/logistics',
-                    name: 'logistics',
-                    component: () => import('./views/Logistics.vue'),
-                    beforeEnter: (to, from, next) => {
-                        let user = store.getters.user;
-                        if (user && user.token) {
-                            next({path: '/product'})
-                        } else {
-                            next()
-                        }
-                    }
-                },
-                {
                     path: '/product',
                     name: 'product',
                     component: () => import('./views/Product.vue'),
-                    beforeEnter: (to, from, next) => {
-                        let user = store.getters.user;
-                        if (user && user.token) {
-                            next()
-                        } else {
-                            next({path: '/logistics'})
-                        }
-                    },
                     children: [
                         {
                             path: 'list',
@@ -58,22 +32,11 @@ const router = new Router({
                             name: 'productList'
                         },
                         {
-                            path: 'supplier',
-                            component: () => import('./views/product/supplier.vue'),
-                            name: 'supplierList'
+                            path: 'edit',
+                            component: () => import('./views/product/edit.vue'),
+                            name: 'productEdit'
                         }
                     ]
-                },
-
-                {
-                    path: '/league',
-                    name: 'league',
-                    component: () => import('./views/League.vue')
-                },
-                {
-                    path: '/solution',
-                    name: 'solution',
-                    component: () => import('./views/Solution.vue')
                 },
             ]
         },

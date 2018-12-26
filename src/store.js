@@ -8,17 +8,25 @@ export default new Vuex.Store({
     state: {
         user: {
             token: ''
-        }
+        },
+        language: localStorage.getItem('language') || 'zh'
     },
     mutations: {
-        SET_USER(user) {
+        SET_LANGUAGE: (state, language) => {
+            state.language = language
+            localStorage.setItem('language', language)
+        },
+        SET_USER: (state, user) => {
             state.user = user
         },
-        CLEAR_USER() {
+        CLEAR_USER: (state) => {
             state.user = {}
         }
     },
     actions: {
+        setLanguage({ commit }, language) {
+            commit('SET_LANGUAGE', language)
+        },
         Login({commit}, userInfo) {
             return new Promise((resolve, reject) => {
                 request({
@@ -41,6 +49,9 @@ export default new Vuex.Store({
     getters: {
         user: state => {
             return state.user;
+        },
+        language: state => {
+            return state.language;
         }
     }
 

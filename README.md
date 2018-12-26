@@ -1,36 +1,36 @@
-# basis-gulp
+# basis-vue
 
 ## 简介
-基于gulp打包HTML的手脚架。使用[page](https://github.com/visionmedia/page.js)前端路由，使得拥有更好的用户体验。本项目适合没有专业SPA前端技术公司作为公司门户或个人博客，当然你也可以作为后台管理的前后端分离手脚架
+基于Vue CLI 3构建的公司门户或者个人博客手脚架。已实现多语言切换，顶部导航固定，二级路由。
 
 ## 优势
-1. gulp 打包使得html、css、js文件最小化，减轻服务器压力
-2. 使用less开发自动会编译成css(这里要注意的是html引用的文件还是*.css，而不是*.less)
-3. 添加文件修改监听自动刷新浏览器，释放F5
-4. 页面跳转不闪白，体验更优。
-5. 速度更快，首页加载完资源后其它碎片页面直接共享，无需重复加载。页面碎片化内容越少加载速度越快
+1. 相比传统html页面拥有更好的页面切换体验，访问速度更快，生产包体积更小
+
 
 ## 缺点
-1. 应为是碎片化的html所以对SEO不利
+1. 因为是碎片化的html所以对SEO不利
 2. 待发现...
 
 ## 注意点
-1. gulp打包的时候plugins文件夹下的所有文件只会做拷贝不做压缩处理
-2. image文件会在打包的时候压缩，如果不需要压缩在gulpfile.js文件中修改
+1. public 文件夹的静态资源都会被简单的复制，而不经过 webpack。[详情](https://cli.vuejs.org/zh/guide/html-and-static-assets.html#public-%E6%96%87%E4%BB%B6%E5%A4%B9)
+2. element ui 是按需引入的，可以更具自己的业务需求添加删除
 3. 待补充...
 
 ## 项目结构
 ```bash
-basis-gulp
-├── src --开发目录
-        ├── css                 -- 这个文件夹中的文件都由less文件打包而来
-        ├── img                 -- 静态图片存放
-        ├── js                  -- js文件存放
-        ├      └── config.js   -- 这里配置路由等信息
-        ├── less                -- less文件存放，该文件夹不会打成生产包。
-        ├── page                -- 页面碎片存放
-        ├── plugins             -- 插件存放
-        └── index.html          -- 宿页
+basis-vue
+    ├── public                       -- 不需要打包的文件存放
+    ├── src                          -- 开发目录
+    ├      ├── assets               -- 资源文件夹
+    ├      ├      └── css          -- css 存放
+    ├      ├      └── js           -- js 存放
+    ├      ├      └── img          -- 静态图片存放
+    ├      ├── components           -- 通用组件 
+    ├      ├── lang                 -- 多语言包
+    ├      ├── page                 -- 页面碎片存放
+    ├      ├── plugins              -- 插件存放
+    ├      └── index.html           -- 宿页
+    ├── theme                        -- element ui 主题        
 ```
 
 ## 开发
@@ -43,7 +43,7 @@ git clone https://gitee.com/laizuan/basis-gulp.git
 npm install
 
 # 启动服务
-gulp run
+npm run serve
 
 ```
 
@@ -52,7 +52,7 @@ gulp run
 ```bash
 
 #打包生产包
-gulp build
+npm run  build
 
 ```
 
@@ -76,12 +76,11 @@ server {
 
 技术 | 名称 | 官网
 ----|---------|------------
-gulp | 基于流的自动化构建工具 | [https://www.gulpjs.com.cn/](https://www.gulpjs.com.cn/)
-jQuery | 函式库  | [http://jquery.com/](http://jquery.com/)
-page | 前端路由 | [https://github.com/visionmedia/page.js](https://github.com/visionmedia/page.js)
-swiper | 轮播图 | [http://idangero.us/swiper/](http://idangero.us/swiper/)
+vue | 渐进式 JavaScript 框架 | [https://cn.vuejs.org/](https://cn.vuejs.org/)
+vue-router | 路由  | [https://router.vuejs.org/](https://router.vuejs.org/)
+vuex | 状态管理 | [https://vuex.vuejs.org/](https://vuex.vuejs.org/)
+element-ui | 基于 Vue 2.0 的桌面端组件库 | [http://element-cn.eleme.io](http://element-cn.eleme.io)
 Headroom | 隐藏或展示页面元素 | [http://www.bootcss.com/p/headroom.js/](http://www.bootcss.com/p/headroom.js/)
-NProgress | 网页进度条 | [http://ricostacruz.com/nprogress/](http://ricostacruz.com/nprogress/)
 
 ## 效果图
 ![demo](https://11-1252792348.cos.ap-guangzhou.myqcloud.com/basis-gulp.gif)

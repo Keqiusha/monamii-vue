@@ -1,92 +1,73 @@
 <template>
     <div class="header flex">
         <div class="logo flex">
-            <img src="../assets/img/logo.png">
-            <span class="title">口岸物流<br/>综合平台</span>
+            <img src="../assets/img/test.png">
+            <span class="title">XXXXXXXXXXX</span>
         </div>
         <div class="menu flex">
             <div class="menu-item-box flex">
-                <div class="menu-item" v-for="(item,index) in menuList" v-if="item.exterior">
-                    <a :href="item.route" target="_blank">{{ item.title }}</a>
-                </div>
-                <div class="menu-item" :class="{'active': item.isActive}" @click="handelMenu($event, index)" v-else>{{
-                    item.title }}
+                <div class="menu-item"
+                     v-for="(item,index) in menuList">
+                    <router-link :to="item.route" >{{ $t(item.title) }}</router-link>
                 </div>
             </div>
             <div class="menu-login-box flex">
                 <div class="button-group-item">
-                    <a href="#" class="button button-link">登入</a>
+                    <router-link to="/login" class="button button-link">{{$t('menu.login')}}</router-link>
                 </div>
                 <div class="button-group-item">
-                    <a href="#" class="button button-link">注册</a>
+                    <router-link to="/register" class="button button-link">{{$t('menu.register')}}</router-link>
                 </div>
+            </div>
+            <div class="language">
+                <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
+                    <div>选择语言</div>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item :disabled="language==='zh'" command="zh">中文</el-dropdown-item>
+                        <el-dropdown-item :disabled="language==='en'" command="en">English</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import {Message} from 'element-ui';
 
     export default {
         name: "Header",
+        computed: {
+            language() {
+                return this.$store.getters.language
+            }
+        },
         data() {
             return {
                 menuList: [
                     {
-                        isActive: true,
-                        exterior: false,
                         route: '/home',
-                        title: '首页'
+                        title: 'menu.home'
                     },
-                    /* {
-                         isActive: false,
-                         exterior: false,
-                         route: '/solution',
-                         title: '行业解决方案'
-                     },*/
                     {
-                        isActive: false,
-                        exterior: false,
                         route: '/product',
-                        title: '物流产品'
+                        title: 'menu.product'
                     },
                     {
-                        isActive: false,
-                        exterior: false,
-                        route: '/league',
-                        title: '联盟商入驻'
-                    },
-                    /*{
-                        isActive: false,
-                        exterior: false,
-                        route: '/jyd',
-                        title: '金运达'
-                    },
-                    {
-                        isActive: false,
-                        exterior: true,
-                        route: 'http://120.79.152.237:9091/jydController/index',
-                        title: '区块链平台'
-                    },*/
-                    {
-                        isActive: false,
-                        exterior: false,
                         route: '/about',
-                        title: '关于懿点网'
+                        title: 'menu.about'
                     }
                 ]
             }
         },
         methods: {
-            handelMenu(event, index) {
-                this.menuList.forEach((v) => {
-                    v.isActive = false
-                })
-                this.menuList[index].isActive = true;
-                let route = this.menuList[index].route
-                this.$router.push({
-                    path: route
-                })
+            handleSetLanguage(lang) {
+                this.$i18n.locale = lang
+                this.$store.dispatch('setLanguage', lang)
+                Message.success({
+                    message: this.$t('action.switchLanguage'),
+                    type: 'success'
+                });
             }
         }
     }
@@ -126,7 +107,12 @@
             color: #fff;
             border: 1px solid #455e9e;
         }
-
+        .language {
+            margin-left: 50px;
+            .el-dropdown-selfdefine {
+                color: #fff;
+            }
+        }
         .menu-item-box {
             .menu-item {
                 color: rgba(255, 255, 255, .8);
