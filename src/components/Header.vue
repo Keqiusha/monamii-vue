@@ -1,8 +1,8 @@
 <template>
     <div class="header flex">
         <div class="logo flex">
-            <img src="../assets/img/test.png">
-            <span class="title">XXXXXXXXXXX</span>
+            <img src="../assets/img/morefun.png">
+            <span class="title">魔趣科技</span>
         </div>
         <div class="menu flex">
             <div class="menu-item-box flex">
@@ -11,14 +11,14 @@
                     <router-link :to="item.route" >{{ $t(item.title) }}</router-link>
                 </div>
             </div>
-            <div class="menu-login-box flex">
-                <div class="button-group-item">
-                    <router-link to="/login" class="button button-link">{{$t('menu.login')}}</router-link>
-                </div>
-                <div class="button-group-item">
-                    <router-link to="/register" class="button button-link">{{$t('menu.register')}}</router-link>
-                </div>
-            </div>
+<!--            <div class="menu-login-box flex">-->
+<!--                <div class="button-group-item">-->
+<!--                    <router-link to="/login" class="button button-link">{{$t('menu.login')}}</router-link>-->
+<!--                </div>-->
+<!--                <div class="button-group-item">-->
+<!--                    <router-link to="/register" class="button button-link">{{$t('menu.register')}}</router-link>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="language">
                 <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
                     <div>选择语言</div>
@@ -62,8 +62,8 @@
         },
         methods: {
             handleSetLanguage(lang) {
-                this.$i18n.locale = lang
-                this.$store.dispatch('setLanguage', lang)
+                this.$i18n.locale = lang;
+                this.$store.dispatch('setLanguage', lang);
                 Message.success({
                     message: this.$t('action.switchLanguage'),
                     type: 'success'
@@ -76,24 +76,28 @@
 <style scoped type="text/less" lang="less">
     .wrapper-header {
         .header {
-            height: 60px;
+            height: 80px;
+            /*background-color: #0C0C0C;*/
             justify-content: space-around;
             align-items: center;
             transition: background 1s ease-out;
         }
         &.headroom--top .header:hover {
             background-color: rgba(255, 255, 255, .2);
+            /*background-color: #007DDB;*/
         }
         .logo {
             align-items: center;
         }
         .title {
-            font-size: .875rem;
+            /*font-size: .875rem;*/
+            font-size: 24px;
             border-left: 1px solid #ffffff;
             padding-left: 10px;
             margin-left: 7px;
             color: #fff;
-            line-height: 1.3;
+            /*line-height: 1.3;*/
+            line-height: 100%;
         }
         .menu {
             justify-content: center;
@@ -111,6 +115,8 @@
             margin-left: 50px;
             .el-dropdown-selfdefine {
                 color: #fff;
+                font-size: 20px;
+                cursor: pointer;
             }
         }
         .menu-item-box {
@@ -119,7 +125,8 @@
                 padding: 15px 20px;
                 cursor: pointer;
                 position: relative;
-                font-size: 1rem;
+                /*font-size: 1rem;*/
+                font-size: 20px;
                 a {
                     text-decoration: none;
                     color: rgba(255, 255, 255, .8);
