@@ -19,7 +19,24 @@ const router = new Router({
                 {
                     path: '/about',
                     name: 'about',
-                    component: () => import('./views/About.vue')
+                    component: () => import('./views/About.vue'),
+                    children: [
+                        {
+                            path: 'AboutMe',
+                            component: () => import('./views/me/AboutMe.vue'),
+                            name: 'Me'
+                        },
+                        {
+                            path: 'Contact',
+                            component: () => import('./views/me/Contact.vue'),
+                            name: 'contact'
+                        },
+                        {
+                            path: 'help',
+                            component: () => import('./views/me/Help.vue'),
+                            name: 'help'
+                        }
+                    ]
                 },
                 {
                     path: '/product',

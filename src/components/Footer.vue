@@ -80,8 +80,9 @@
                         <span>Copyright ©2018 - 2020 monamii<a target="_blank" href="#">粤ICP备213456845号</a></span>
                     </div>
                 </div>
+<!--                添加二维码-->
                 <div class="qrcode">
-                    <img src="../assets/img/test.png">
+<!--                    <img src="../assets/img/test.png">-->
                 </div>
             </div>
         </div>

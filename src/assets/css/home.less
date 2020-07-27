@@ -3,25 +3,24 @@
     width: 100%;
     margin-top: -100px;
     .el-carousel__container .el-carousel__item .banner-item {
-      width: 100%;
+      width: auto;
       height: 100%;
 
       &.one {
         //background: url(../img/banner-02.jpg) no-repeat center center;
-        background: url(../testImg/banner07.jpg) no-repeat center center;
-        background-size: 1920px 1100px;
-
-      }
-
-      &.two {
         background: url(../testImg/banner04.jpg) no-repeat center center;
-        background-size: 1920px 1100px;
+        //background: url(../testImg/banner07.jpg) no-repeat center center;
+        background-size: 100% auto;
+      }
+      &.two {
+        background: url(../testImg/test.jpg) no-repeat center center;
+        background-size: 100% auto;
 
       }
       &.three {
         background: url(../testImg/banner08.jpg) no-repeat center center;
         image-resolution: from-image;
-        background-size: 1920px 1100px;
+        background-size: 100% auto;
       }
     }
   }
@@ -31,9 +30,11 @@
     height: 150px;
   }
   .hot-sell a.text{cursor: pointer; text-align: center;}
-  .hot-sell a.text img{width: 100%; transition: 1.2s;}
+  .hot-sell a.text img{width: 100%; height: 100%; transition: 1.2s;}
+  .hot-sell .pic-title {
 
-  .hot-sell a.text div{overflow: hidden;}
+  }
+  .hot-sell a.text div{overflow: hidden; width: 100%;height: 100%;background-color: #FD482C}
   .hot-sell a.text p{color: #999; font-size: 12px; line-height: 18px; padding-top: 22px; transition: 0.5s; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
   .hot-sell a.text p.price{color: #333; font-size: 14px; line-height: 38px; padding-top: 0; padding-bottom: 5px;}
   .hot-sell a.text:hover p{color: #FFF; background-color: #e6c9a2; transition: 0.5s;}
@@ -143,6 +144,16 @@
       a:hover{
         color: #FD482C;
         cursor: pointer;
+      }
+    }
+    .pic-company{
+      width: 600px;
+      height: 500px;
+      z-index: 3;
+      border-radius: 10%;
+      img{
+        height: 350px;
+        width: 450px;
       }
     }
   }
